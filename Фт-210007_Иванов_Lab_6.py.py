@@ -6,8 +6,8 @@ while True:
     except ValueError:
         print('Неверное значение')
 s_matr = np.eye(cr_num)#Создаём 1-ную матрицу
-#Заполняем матрицу коэфицентами сравнений
-a = 1#счётчик для пропуска уже заполненных значений
+#Заполняем матрицу коэффициентами сравнений
+a = 1   #счётчик для пропуска уже заполненных значений
 for i in range(a, cr_num+1):
     for j in range(a+1, cr_num+1):
         while True:
@@ -22,7 +22,12 @@ for i in range(a, cr_num+1):
     a += 1
 # Создаём список сумм строки
 comp_list = [round(sum(j),2) for j in s_matr]
-# Вывод коэф-ов
-for n in comp_list:
-    print(round(n/sum(comp_list), 2), end=' ')
+out_list = [round(n/sum(comp_list), 2) for n in comp_list]
+if (sum(out_list)) != 1.0:
+    index = out_list.index(max(out_list))
+    k = (sum(out_list)) - 1.0
+    out_list[index] -= k
+print('Весовые коэффициенты')
+for n in out_list:
+    print(out_list[n], end=' ')
 
