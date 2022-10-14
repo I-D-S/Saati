@@ -28,6 +28,6 @@ if (sum(out_list)) != 1.0:
     k = (sum(out_list)) - 1.0
     out_list[index] -= k
 print('Весовые коэффициенты')
-for n in out_list:
-    print(out_list[n], end=' ')
+for ind in out_list:
+    print(ind, end=' ')
 
